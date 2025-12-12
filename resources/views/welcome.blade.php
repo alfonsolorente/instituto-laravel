@@ -13,16 +13,11 @@
         <!-- Header oscuro azul marino -->
         <header class="bg-[#1e2a4a] text-white py-2">
             <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                <!-- Logo MRW Developer -->
+                <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="relative">
-                        <svg class="h-14 w-20" viewBox="0 0 100 60" fill="none">
-                            <ellipse cx="50" cy="28" rx="42" ry="22" fill="#FF6B35"/>
-                            <text x="18" y="26" fill="#1e2a4a" font-size="11" font-weight="bold">MRW</text>
-                            <path d="M12 38 Q50 58 88 38" stroke="#9333EA" stroke-width="5" fill="none"/>
-                            <text x="22" y="52" fill="#9333EA" font-size="9" font-style="italic">Developer</text>
-                        </svg>
-                    </div>
+                    <a href="/">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-14 w-auto">
+                    </a>
                 </div>
                 
                 <!-- Titulo centrado -->

@@ -23,8 +23,8 @@ class AlumnoController extends Controller
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            'email' => 'required|email|unique:alumnos,email',
-            'dni' => 'required|string|max:9|unique:alumnos,dni',
+            'email' => 'required|email|unique:estudiantes,email',
+            'dni' => 'required|string|max:9|unique:estudiantes,dni',
             'f_nac' => 'required|date|before:today',
         ]);
 
@@ -49,8 +49,8 @@ class AlumnoController extends Controller
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            'email' => 'required|email|unique:alumnos,email,' . $alumno->id,
-            'dni' => 'required|string|max:9|unique:alumnos,dni,' . $alumno->id,
+            'email' => 'required|email|unique:estudiantes,email,' . $alumno->id,
+            'dni' => 'required|string|max:9|unique:estudiantes,dni,' . $alumno->id,
             'f_nac' => 'required|date|before:today',
         ]);
 

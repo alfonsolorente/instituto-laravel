@@ -11,38 +11,33 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased m-0 p-0 bg-white">
-        <!-- Header oscuro azul marino -->
-        <header class="bg-[#1e2a4a] text-white py-2">
+        <!-- Header con gradiente cyan -->
+        <header class="bg-gradient-to-r from-cyan-500 via-cyan-600 to-blue-700 text-white py-3">
             <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                <!-- Logo MRW Developer -->
+                <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <svg class="h-14 w-20" viewBox="0 0 100 60" fill="none">
-                            <ellipse cx="50" cy="28" rx="42" ry="22" fill="#FF6B35"/>
-                            <text x="18" y="26" fill="#1e2a4a" font-size="11" font-weight="bold">MRW</text>
-                            <path d="M12 38 Q50 58 88 38" stroke="#9333EA" stroke-width="5" fill="none"/>
-                            <text x="22" y="52" fill="#9333EA" font-size="9" font-style="italic">Developer</text>
-                        </svg>
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-16 w-auto">
                     </a>
                 </div>
                 
                 <!-- Titulo centrado con nombre de usuario -->
-                <div class="text-3xl font-bold tracking-wide">
-                    SCHOOL MANAGEMENT
-                    <span class="ml-2 text-base font-normal">{{ Auth::user()->name }}</span>
+                <div class="flex items-center">
+                    <span class="text-4xl font-bold tracking-wide">SCHOOL MANAGEMENT</span>
+                    <span class="ml-4 text-lg">{{ Auth::user()->name }}</span>
                 </div>
                 
                 <!-- Botones derecha -->
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-3">
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="px-4 py-1 bg-gray-600 rounded text-sm">
+                        <button type="submit" class="px-4 py-1.5 bg-gray-700 hover:bg-gray-600 rounded text-sm">
                             Logout
                         </button>
                     </form>
-                    <span class="ml-2 text-green-400">Enghis</span>
+                    <span class="ml-2 text-green-400 font-medium">Enghis</span>
                     <a href="{{ route('lang.switch', app()->getLocale() == 'es' ? 'en' : 'es') }}" class="flex items-center">
-                        <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="h-3 w-5 object-cover">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="h-4 w-6 object-cover">
                     </a>
                 </div>
             </div>
