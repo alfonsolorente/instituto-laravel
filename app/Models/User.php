@@ -6,14 +6,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    /**
+     * Trait HasFactory: Permite usar factories para crear usuarios en pruebas y seeders.
+     * Trait Notifiable: Permite enviar notificaciones (email, slack, etc.) al usuario.
+     * Trait HasRoles: Añadido por el paquete Spatie/Laravel-Permission para gestionar roles y permisos.
+     */
+    use HasFactory, Notifiable, HasRoles;
 
     /**
-     * The attributes that are mass assignable.
+     * Los atributos que son asignables masivamente.
+     * Esto protege contra asignaciones masivas no deseadas (Mass Assignment Vulnerability).
      *
      * @var list<string>
      */
@@ -24,7 +30,8 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Los atributos que deben ocultarse para la serialización.
+     * Por ejemplo, cuando se convierte el modelo a JSON, estos campos no aparecerán.
      *
      * @var list<string>
      */
@@ -34,15 +41,15 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Define conversiones automáticas de tipos de datos.
      *
      * @return array<string, string>
      */
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'email_verified_at' => 'datetime', // Convierte la fecha de verificación a objeto DateTime
+            'password' => 'hashed',            // Hashea automáticamente la contraseña al guardarla
         ];
     }
 }

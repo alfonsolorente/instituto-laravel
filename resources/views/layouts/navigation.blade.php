@@ -15,6 +15,50 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumnos.*')">
+                        {{ __('Alumnos') }}
+                    </x-nav-link>
+                </div>
+
+                <!-- Selector de Idiomas (Dropdown) -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6 border-l border-gray-300 pl-4">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>
+                                    @switch(app()->getLocale())
+                                        @case('es') <img src="https://flagcdn.com/w40/es.png" class="h-4 w-6 object-cover rounded shadow-sm inline-block mr-1"> Español @break
+                                        @case('en') <img src="https://flagcdn.com/w40/gb.png" class="h-4 w-6 object-cover rounded shadow-sm inline-block mr-1"> English @break
+                                        @case('fr') <img src="https://flagcdn.com/w40/fr.png" class="h-4 w-6 object-cover rounded shadow-sm inline-block mr-1"> Français @break
+                                    @endswitch
+                                </div>
+
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('lang.switch', 'es')">
+                                <div class="flex items-center">
+                                    <img src="https://flagcdn.com/w40/es.png" class="h-3 w-5 object-cover mr-2"> Español
+                                </div>
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('lang.switch', 'en')">
+                                <div class="flex items-center">
+                                    <img src="https://flagcdn.com/w40/gb.png" class="h-3 w-5 object-cover mr-2"> English
+                                </div>
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('lang.switch', 'fr')">
+                                <div class="flex items-center">
+                                    <img src="https://flagcdn.com/w40/fr.png" class="h-3 w-5 object-cover mr-2"> Français
+                                </div>
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
                 </div>
             </div>
 
@@ -95,6 +139,23 @@
                     </x-responsive-nav-link>
                 </form>
             </div>
+
+            <!-- Responsive Language Switcher -->
+        <!-- Sección de idioma para menú móvil: muestra los idiomas con texto completo y banderas -->
+        <div class="mt-3 space-y-1 border-t border-gray-200 pt-2">
+            <div class="px-4 text-xs text-gray-400 uppercase font-semibold">
+                {{ __('Language') }}
+            </div>
+            <x-responsive-nav-link :href="route('lang.switch', 'es')" :active="app()->getLocale() == 'es'">
+                🇪🇸 Español
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('lang.switch', 'en')" :active="app()->getLocale() == 'en'">
+                🇬🇧 English
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('lang.switch', 'fr')" :active="app()->getLocale() == 'fr'">
+                🇫🇷 Français
+            </x-responsive-nav-link>
+        </div>
         </div>
     </div>
 </nav>
