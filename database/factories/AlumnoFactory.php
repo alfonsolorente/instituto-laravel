@@ -7,8 +7,19 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AlumnoFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
     protected $model = Alumno::class;
 
+    /**
+     * Define el estado predeterminado del modelo Alumno.
+     * Utiliza Faker para generar datos realistas aleatorios.
+     *
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
         return [

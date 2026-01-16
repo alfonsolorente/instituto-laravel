@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+/**
+ * CONTROLADOR DE SESIONES (LOGIN)
+ * 
+ * Aquí gestionamos el proceso de entrada y salida de los usuarios:
+ * - Mostrar el formulario de acceso
+ * - Verificar las credenciales
+ * - Cerrar la sesión de forma segura
+ */
 class AuthenticatedSessionController extends Controller
 {
     /**

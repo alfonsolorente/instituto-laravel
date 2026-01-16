@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+/**
+ * CONTROLADOR DE REGISTRO
+ * 
+ * Se encarga de dar de alta a nuevos usuarios en el sistema, validando
+ * que los datos sean correctos antes de guardarlos en la base de datos.
+ */
 class RegisteredUserController extends Controller
 {
     /**

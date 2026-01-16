@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+/**
+ * CONTROLADOR DE PERFIL
+ * 
+ * Este controlador se encarga de que los usuarios puedan ver su información personal,
+ * actualizar su nombre o correo, y si lo desean, eliminar su cuenta.
+ */
 class ProfileController extends Controller
 {
     /**

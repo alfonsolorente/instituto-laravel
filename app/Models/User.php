@@ -8,6 +8,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * MODELO DE USUARIO
+ * 
+ * Representa a las personas que pueden iniciar sesión en el sistema.
+ * Utiliza el trait HasRoles de Spatie para gestionar permisos.
+ */
+/**
+ * MODELO DE USUARIO
+ * 
+ * Este modelo representa a los usuarios que pueden acceder al sistema.
+ * Utiliza el trait HasRoles de Spatie para la gestión de permisos por roles.
+ */
 class User extends Authenticatable
 {
     /**

@@ -5,6 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * MODELO DE ALUMNO
+ * 
+ * Gestiona los datos de los estudiantes registrados en el instituto.
+ * Mapea directamente con la tabla 'estudiantes'.
+ */
+/**
+ * MODELO DE ALUMNO
+ * 
+ * Gestiona la información de los estudiantes. Aunque la clase se llama Alumno,
+ * está vinculada a la tabla 'estudiantes' en la base de datos.
+ */
 class Alumno extends Model
 {
     use HasFactory;
